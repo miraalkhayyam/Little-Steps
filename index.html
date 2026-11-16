@@ -11,37 +11,22 @@
   .btn-3d {
     border: none; border-radius: 14px; font-weight: 800; cursor: pointer;
     box-shadow: 0 5px 0 rgba(0,0,0,0.22), 0 8px 15px rgba(0,0,0,0.12);
-    transition: transform 0.08s ease, box-shadow 0.08s ease;
-    user-select: none;
+    transition: transform 0.08s ease, box-shadow 0.08s ease; user-select: none;
   }
   .btn-3d:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 1px 0 rgba(0,0,0,0.22); }
   .btn-3d:disabled { opacity: 0.45; cursor: not-allowed; }
   .icon-btn { width: 52px; height: 52px; font-size: 22px; background: #e7f4f2; color: #167c80; }
-  .banner {
-    background: linear-gradient(120deg, #167c80, #38a6a0, #7b70bd);
-    padding: 22px 14px; border-radius: 22px; color: white; text-align: center;
-  }
-  .settings-box {
-    display: none; background: #f7fcfb; border: 2px solid #cde5df; border-radius: 16px;
-    padding: 14px; margin-top: 12px; gap: 18px; flex-wrap: wrap; align-items: center;
-  }
+  .banner { background: linear-gradient(120deg, #167c80, #38a6a0, #7b70bd); padding: 22px 14px; border-radius: 22px; color: white; text-align: center; }
+  .settings-box { display: none; background: #f7fcfb; border: 2px solid #cde5df; border-radius: 16px; padding: 14px; margin-top: 12px; gap: 18px; flex-wrap: wrap; align-items: center; }
   .cards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 18px; }
-  .card {
-    width: 265px; padding: 12px; border: 2px solid #d6ebe5; border-radius: 20px;
-    background: #fff; text-align: center; cursor: pointer;
-    box-shadow: 0 6px 16px rgba(22,124,128,0.08); transition: transform 0.12s ease;
-  }
+  .card { width: 265px; padding: 12px; border: 2px solid #d6ebe5; border-radius: 20px; background: #fff; text-align: center; cursor: pointer; box-shadow: 0 6px 16px rgba(22,124,128,0.08); transition: transform 0.12s ease; }
   .card:hover { transform: translateY(-3px); }
   .card img { width: 100%; height: 210px; object-fit: contain; background: #f5fbfa; border-radius: 16px; }
   .btn-green { background: #38a66a; color: #fff; padding: 12px 24px; font-size: 18px; }
   .btn-nav { background: #d7eee9; color: #164e52; padding: 14px 26px; font-size: 19px; min-width: 155px; }
   .btn-end { background: #e05a47; color: #fff; padding: 14px 26px; font-size: 19px; min-width: 185px; }
   .lesson-box { padding: 20px; border-radius: 22px; text-align: center; margin-top: 14px; }
-  .pic-btn {
-    display: block; margin: 12px auto; padding: 0; border: 4px solid #b9e5dc;
-    border-radius: 22px; background: #fff; max-width: 92%; cursor: pointer;
-    box-shadow: 0 5px 18px rgba(25,90,85,0.12);
-  }
+  .pic-btn { display: block; margin: 12px auto; padding: 0; border: 4px solid #b9e5dc; border-radius: 22px; background: #fff; max-width: 92%; cursor: pointer; box-shadow: 0 5px 18px rgba(25,90,85,0.12); }
   .pic-btn img { display: block; width: min(720px, 86vw); height: min(430px, 55vh); object-fit: contain; border-radius: 17px; }
   .nav-row { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-top: 18px; }
 </style>
@@ -53,13 +38,11 @@
     <button class="btn-3d icon-btn" title="My Progress" onclick="toggleProgress()">📊</button>
     <button class="btn-3d icon-btn" title="Settings" onclick="toggleSettings()">⚙️</button>
   </div>
-
   <div class="banner">
     <div style="font-size:38px">🌈</div>
     <div style="font-size:40px;font-weight:900">Little Steps</div>
     <div style="font-size:18px;margin-top:5px">Every big achievement starts with a little step!</div>
   </div>
-
   <div id="settings-box" class="settings-box">
     <strong style="color:#167c80">Accessibility:</strong>
     <label>Text:
@@ -72,45 +55,25 @@
     <label><input type="checkbox" id="high-contrast" onchange="render()"> High contrast</label>
     <label><input type="checkbox" id="simple-mode" checked onchange="render()"> Simple instructions</label>
   </div>
-
   <div id="progress-box" style="display:none;margin-top:14px"></div>
   <div id="app"></div>
   <audio id="step-audio" style="display:none"></audio>
 </div>
-
 <script>
 const ACTIVITIES = [{"id": 1, "name": "Washing Hands", "cover": "images/washing_hands_cover.png", "steps": [{"step_number": 1, "instruction": "Turn on the water.", "image": "images/washing_hands_step_1.png", "audio": "audio/washing_hands_step_1.mp3"}, {"step_number": 2, "instruction": "Wet your hands.", "image": "images/washing_hands_step_2.png", "audio": "audio/washing_hands_step_2.mp3"}, {"step_number": 3, "instruction": "Apply soap.", "image": "images/washing_hands_step_3.png", "audio": "audio/washing_hands_step_3.mp3"}, {"step_number": 4, "instruction": "Rub your hands together.", "image": "images/washing_hands_step_4.png", "audio": "audio/washing_hands_step_4.mp3"}, {"step_number": 5, "instruction": "Rinse your hands.", "image": "images/washing_hands_step_5.png", "audio": "audio/washing_hands_step_5.mp3"}, {"step_number": 6, "instruction": "Dry your hands.", "image": "images/washing_hands_step_6.png", "audio": "audio/washing_hands_step_6.mp3"}]}, {"id": 2, "name": "Brushing Teeth", "cover": "images/brushing_teeth_cover.png", "steps": [{"step_number": 1, "instruction": "Pick up your toothbrush.", "image": "images/brushing_teeth_step_1.png", "audio": "audio/brushing_teeth_step_1.mp3"}, {"step_number": 2, "instruction": "Put toothpaste on the brush.", "image": "images/brushing_teeth_step_2.png", "audio": "audio/brushing_teeth_step_2.mp3"}, {"step_number": 3, "instruction": "Brush your teeth gently.", "image": "images/brushing_teeth_step_3.png", "audio": "audio/brushing_teeth_step_3.mp3"}, {"step_number": 4, "instruction": "Spit out the toothpaste.", "image": "images/brushing_teeth_step_4.png", "audio": "audio/brushing_teeth_step_4.mp3"}, {"step_number": 5, "instruction": "Rinse your mouth.", "image": "images/brushing_teeth_step_5.png", "audio": "audio/brushing_teeth_step_5.mp3"}]}, {"id": 3, "name": "Tying Shoes", "cover": "images/tying_shoes_cover.png", "steps": [{"step_number": 1, "instruction": "Cross the two laces.", "image": "images/tying_shoes_step_1.png", "audio": "audio/tying_shoes_step_1.mp3"}, {"step_number": 2, "instruction": "Pull one lace underneath.", "image": "images/tying_shoes_step_2.png", "audio": "audio/tying_shoes_step_2.mp3"}, {"step_number": 3, "instruction": "Make a loop.", "image": "images/tying_shoes_step_3.png", "audio": "audio/tying_shoes_step_3.mp3"}, {"step_number": 4, "instruction": "Wrap the other lace around.", "image": "images/tying_shoes_step_4.png", "audio": "audio/tying_shoes_step_4.mp3"}, {"step_number": 5, "instruction": "Pull it through to make a bow.", "image": "images/tying_shoes_step_5.png", "audio": "audio/tying_shoes_step_5.mp3"}]}];
 let state = { screen: "home", page: 0, actIdx: 0, stepIdx: 0 };
 const CARDS_PER_PAGE = 3;
-
-function getDoneMap() {
-  try { return JSON.parse(localStorage.getItem("little_steps_done") || "{}"); }
-  catch (e) { return {}; }
-}
-function markDone(actId, stepNum) {
-  const m = getDoneMap();
-  m[actId + "_" + stepNum] = 1;
-  localStorage.setItem("little_steps_done", JSON.stringify(m));
-}
+function getDoneMap() { try { return JSON.parse(localStorage.getItem("little_steps_done") || "{}"); } catch (e) { return {}; } }
+function markDone(actId, stepNum) { const m = getDoneMap(); m[actId + "_" + stepNum] = 1; localStorage.setItem("little_steps_done", JSON.stringify(m)); }
 function playStepAudio(src, autoplay) {
   const a = document.getElementById("step-audio");
   if (!src) { a.removeAttribute("src"); return; }
   if (a.getAttribute("src") !== src) a.setAttribute("src", src);
-  a.pause();
-  a.currentTime = 0;
+  a.pause(); a.currentTime = 0;
   if (autoplay) a.play().catch(() => {});
 }
-function replayAudio() {
-  const a = document.getElementById("step-audio");
-  if (!a.getAttribute("src")) return;
-  a.pause();
-  a.currentTime = 0;
-  a.play().catch(() => {});
-}
-function toggleSettings() {
-  const el = document.getElementById("settings-box");
-  el.style.display = el.style.display === "flex" ? "none" : "flex";
-}
+function replayAudio() { const a = document.getElementById("step-audio"); if (!a.getAttribute("src")) return; a.pause(); a.currentTime = 0; a.play().catch(() => {}); }
+function toggleSettings() { const el = document.getElementById("settings-box"); el.style.display = el.style.display === "flex" ? "none" : "flex"; }
 function toggleProgress() {
   const box = document.getElementById("progress-box");
   if (box.style.display === "block") { box.style.display = "none"; return; }
@@ -127,8 +90,7 @@ function toggleProgress() {
         <div style="height:12px;width:${pct}%;background:#38a66a;border-radius:10px"></div>
       </div></div>`;
   });
-  box.innerHTML = html;
-  box.style.display = "block";
+  box.innerHTML = html; box.style.display = "block";
 }
 function showHome() { state.screen = "home"; render(); }
 function openIntro(idx) { state = { ...state, screen: "intro", actIdx: idx, stepIdx: 0 }; render(); }
@@ -144,7 +106,6 @@ function endActivity() {
   markDone(act.id, act.steps[state.stepIdx].step_number);
   showHome();
 }
-
 function render(autoplay = false) {
   const app = document.getElementById("app");
   if (state.screen === "home") {
@@ -153,33 +114,13 @@ function render(autoplay = false) {
     let cards = visible.map((act, i) => {
       const realIdx = start + i;
       const img = act.cover ? `<img src="${act.cover}" alt="${act.name}">` : `<div style="height:210px;display:flex;align-items:center;justify-content:center;font-size:52px">🖼️</div>`;
-      return `<div class="card" onclick="openIntro(${realIdx})">
-        ${img}
-        <div style="font-size:21px;font-weight:800;margin:10px 0">${act.name}</div>
-        <button class="btn-3d btn-green" style="width:100%">Let's learn! →</button>
-      </div>`;
+      return `<div class="card" onclick="openIntro(${realIdx})">${img}<div style="font-size:21px;font-weight:800;margin:10px 0">${act.name}</div><button class="btn-3d btn-green" style="width:100%">Let's learn! →</button></div>`;
     }).join("");
-    app.innerHTML = `
-      <div style="text-align:center;padding:20px 8px 6px">
-        <div style="font-size:30px;font-weight:900;color:#235b65">What would you like to learn today?</div>
-        <div style="font-size:19px;color:#617b86;margin-top:6px">Choose a picture to get started.</div>
-      </div>
-      <div class="cards-grid">${cards}</div>
-      <div class="nav-row">
-        <button class="btn-3d btn-nav" ${state.page === 0 ? "disabled" : ""} onclick="state.page--;render()">‹ Previous</button>
-        <button class="btn-3d btn-nav" ${start + CARDS_PER_PAGE >= ACTIVITIES.length ? "disabled" : ""} onclick="state.page++;render()">Next ›</button>
-      </div>`;
+    app.innerHTML = `<div style="text-align:center;padding:20px 8px 6px"><div style="font-size:30px;font-weight:900;color:#235b65">What would you like to learn today?</div><div style="font-size:19px;color:#617b86;margin-top:6px">Choose a picture to get started.</div></div><div class="cards-grid">${cards}</div><div class="nav-row"><button class="btn-3d btn-nav" ${state.page === 0 ? "disabled" : ""} onclick="state.page--;render()">‹ Previous</button><button class="btn-3d btn-nav" ${start + CARDS_PER_PAGE >= ACTIVITIES.length ? "disabled" : ""} onclick="state.page++;render()">Next ›</button></div>`;
   } else if (state.screen === "intro") {
     const act = ACTIVITIES[state.actIdx];
     const img = act.cover ? `<img src="${act.cover}" onclick="startLesson()" style="width:min(560px,90%);max-height:340px;object-fit:contain;border-radius:22px;border:4px solid #d8eeea;cursor:pointer">` : "";
-    app.innerHTML = `
-      <div style="text-align:center;padding:18px">
-        <div style="font-size:40px;font-weight:900;color:#167c80">${act.name}</div>
-        <div style="font-size:22px;margin:12px;color:#3f5968">Today we will learn how to ${act.name.toLowerCase()}.</div>
-        ${img}
-        <div style="font-size:20px;margin:14px;color:#617b86">Tap the picture or Click Start when you are ready.</div>
-        <button class="btn-3d btn-green" style="font-size:22px;padding:16px 38px" onclick="startLesson()">▶ START</button>
-      </div>`;
+    app.innerHTML = `<div style="text-align:center;padding:18px"><div style="font-size:40px;font-weight:900;color:#167c80">${act.name}</div><div style="font-size:22px;margin:12px;color:#3f5968">Today we will learn how to ${act.name.toLowerCase()}.</div>${img}<div style="font-size:20px;margin:14px;color:#617b86">Tap the picture or Click Start when you are ready.</div><button class="btn-3d btn-green" style="font-size:22px;padding:16px 38px" onclick="startLesson()">▶ START</button></div>`;
   } else if (state.screen === "lesson") {
     const act = ACTIVITIES[state.actIdx];
     const step = act.steps[state.stepIdx];
@@ -191,19 +132,7 @@ function render(autoplay = false) {
     const stepLabel = simple ? "" : `<div style="font-size:18px;margin-top:4px">Step ${state.stepIdx + 1} of ${act.steps.length}</div>`;
     const img = step.image ? `<button type="button" class="pic-btn" onclick="replayAudio()"><img src="${step.image}" alt="Step ${step.step_number}"></button>` : `<div style="padding:40px">Picture unavailable</div>`;
     const isLast = state.stepIdx >= act.steps.length - 1;
-    app.innerHTML = `
-      <div class="lesson-box" style="background:${bg};color:${fg}">
-        <div style="font-size:38px;font-weight:900">${act.name}</div>
-        ${stepLabel}
-        <div style="font-size:${size};font-weight:900;line-height:1.3;margin:14px">${step.instruction}</div>
-        <div style="font-size:16px;opacity:0.85">Tap the picture to hear the instruction again</div>
-        ${img}
-        <div class="nav-row">
-          <button class="btn-3d btn-nav" ${state.stepIdx === 0 ? "disabled" : ""} onclick="prevStep()">⬅ Previous</button>
-          ${isLast ? "" : `<button class="btn-3d btn-nav" onclick="nextStep()">Next ➡</button>`}
-          <button class="btn-3d btn-end" onclick="endActivity()">✓ End Activity</button>
-        </div>
-      </div>`;
+    app.innerHTML = `<div class="lesson-box" style="background:${bg};color:${fg}"><div style="font-size:38px;font-weight:900">${act.name}</div>${stepLabel}<div style="font-size:${size};font-weight:900;line-height:1.3;margin:14px">${step.instruction}</div><div style="font-size:16px;opacity:0.85">Tap the picture to hear the instruction again</div>${img}<div class="nav-row"><button class="btn-3d btn-nav" ${state.stepIdx === 0 ? "disabled" : ""} onclick="prevStep()">⬅ Previous</button>${isLast ? "" : `<button class="btn-3d btn-nav" onclick="nextStep()">Next ➡</button>`}<button class="btn-3d btn-end" onclick="endActivity()">✓ End Activity</button></div></div>`;
     playStepAudio(step.audio, autoplay);
   }
 }
